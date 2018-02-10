@@ -1,0 +1,58 @@
+header {
+	font-family: $font-stack; 
+	// Primary Navbar Social Links and Hamburger Menu
+	.primary-nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		.social-link {
+			display: flex;
+			flex-direction: row;
+			.social-link-icon {
+				a {
+					transition: opacity 0.25s ease-in-out;
+					&:hover {
+						opacity: .8;
+					}
+				}
+				img {
+					width: 50px;
+				}
+			}
+		}
+		.hamburger-menu {
+
+		}
+	}
+
+	// Dropdown Navbar that display when hamburger is clicked
+
+	// Title
+	.title {
+		h1 {
+			text-align: center;
+			letter-spacing: .05em;
+			font-size: 2.5em;
+			a {
+				padding: 5px;
+			}
+		}
+	}
+
+	// Secondary Navbar
+	.secondary-nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		.secondary-nav-link {
+			margin: 10px;
+			a {
+				padding: 5px;
+				transition: opacity 0.25s ease-in-out;
+				&:hover {
+					opacity: .5;
+				}
+			}
+		}
+	}
+}

@@ -1,9 +1,16 @@
+// Variables
 $font-stack: Helvetica, sans-serif;
 
-header {
-	display: flex;
-	color: blue;
-	.social {
-		color: green;
-	}
+// Base styles for entire site
+*:focus {
+    outline: none;
 }
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+// Import SCSS Partials
+@import 'header';
+@import 'hamburger/hamburgers'
