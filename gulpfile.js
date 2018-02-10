@@ -1,4 +1,3 @@
-
 'use strict';
 
 const gulp       = require('gulp'),
@@ -12,7 +11,7 @@ const gulp       = require('gulp'),
 	  stripDebug = require('gulp-strip-debug');
 
 gulp.task('start', () => {
-    // Sassy -> CSS, 
+    // Sassy -> CSS, concat files, minify, rename, save to css folder 
     gulp.src(['./public/sass/**/*.scss'])
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('build.css'))
@@ -22,19 +21,19 @@ gulp.task('start', () => {
         }))
         //.pipe(sourcemaps.write('.'))
         .pipe(rename('build.min.css'))
-        .pipe(gulp.dest('./public/css'));
+        .pipe(gulp.dest('./build'));
 
     // Babel ES6+ -> ES5, concat files, minify, rename to bundle
     gulp.src(['./public/js/**/*.js'])
         .pipe(babel({
             presets: ['env']
             }))
-        .pipe(concat('bundle.js'))
+        .pipe(concat('build.js'))
         .pipe(stripDebug())
         .pipe(uglify())
             .on('error', err => gutil.log(gutil.colors.red('[Error]'), err.toString()))
-        .pipe(rename('bundle.min.js'))
-        .pipe(gulp.dest('./public/js'));
+        .pipe(rename('build.min.js'))
+        .pipe(gulp.dest('./build'));
 });
 
 //Watch task
