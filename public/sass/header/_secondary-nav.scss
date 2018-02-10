@@ -1,0 +1,16 @@
+// Secondary Navbar
+.secondary-nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	.secondary-nav-link {
+		margin: 10px;
+		a {
+			padding: 5px;
+			transition: opacity 0.25s ease-in-out;
+			&:hover {
+				opacity: .5;
+			}
+		}
+	}
+}

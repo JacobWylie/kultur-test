@@ -1,0 +1,27 @@
+// Primary Navbar Social Links and Hamburger Menu
+.primary-nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 900px;
+	margin: 20px auto;
+	.social-link {
+		display: flex;
+		flex-direction: row;
+		.social-link-icon {
+			a {
+				transition: opacity 0.25s ease-in-out;
+				-webkit-transition: opacity 0.25s ease-in-out;
+				&:hover {
+					opacity: .8;
+				}
+			}
+			img {
+				width: 50px;
+			}
+		}
+	}
+	.hamburger-menu {
+
+	}
+}

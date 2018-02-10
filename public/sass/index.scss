@@ -6,11 +6,15 @@ $font-stack: Helvetica, sans-serif;
     outline: none;
 }
 
+body {
+	margin: 0;
+}
+
 a {
 	text-decoration: none;
 	color: black;
 }
 
 // Import SCSS Partials
-@import 'header';
+@import 'header/header';
 @import 'hamburger/hamburgers'
