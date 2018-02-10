@@ -1,3 +1,4 @@
+@import 'hamburger/hamburgers'
 @import 'primary-nav';
 @import 'secondary-nav';
 @import 'dropdown-nav';
@@ -7,6 +8,7 @@ header {
 	// Title
 	.title {
 		h1 {
+			margin-top: 50px;
 			text-align: center;
 			letter-spacing: .02em;
 			font-size: 3em;

@@ -4,7 +4,8 @@
 	flex-direction: row;
 	justify-content: space-between;
 	max-width: 900px;
-	margin: 20px auto;
+	margin: 10px auto;
+	padding: 20px;
 	.social-link {
 		display: flex;
 		flex-direction: row;
@@ -12,9 +13,6 @@
 			a {
 				transition: opacity 0.25s ease-in-out;
 				-webkit-transition: opacity 0.25s ease-in-out;
-				&:hover {
-					opacity: .8;
-				}
 			}
 			img {
 				width: 50px;
