@@ -4,16 +4,20 @@
 	display: none;
 	animation: fade .4s linear;
 	opacity: 0;
-	padding: 20px;
+	padding: 50px 10px;
 	letter-spacing: .05em;
 	h1 {
+		font-family: $font-heading;
 		color: white;
 		text-align: center;
-		text-decoration: underline;
+		// text-decoration: underline;
 		text-transform: uppercase;
 	}
+	hr {
+		max-width: 600px;
+	}
 	.dropdown-nav-links {
-		margin: 0 auto;
+		margin: 30px auto;
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-between;

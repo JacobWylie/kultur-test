@@ -4,9 +4,9 @@
 	flex-direction: row;
 	justify-content: center;
 	.secondary-nav-link {
-		margin: 10px;
 		a {
 			padding: 5px;
+			margin: 0 15px;
 			transition: opacity 0.25s ease-in-out;
 			position: relative;
 			font-size: 1.3em;

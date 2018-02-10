@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee|Limelight');
 // Variables
-$font-stack: Helvetica, sans-serif;
+$font-heading: 'Limelight', cursive;
+$font-main: 'ABeeZee', Helvetica, sans-serif;
 
 // Base styles for entire site
 *:focus {
@@ -8,11 +10,17 @@ $font-stack: Helvetica, sans-serif;
 
 body {
 	margin: 0;
+	font-family: $font-main;
 }
 
 a {
 	text-decoration: none;
 	color: black;
+}
+
+hr {
+	width: 75%;
+	margin-top: 30px;
 }
 
 // Import SCSS Partials
