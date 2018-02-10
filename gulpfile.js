@@ -8,22 +8,23 @@ const gulp       = require('gulp'),
       gutil      = require('gulp-util'),
       babel      = require('gulp-babel'),
       sass       = require('gulp-sass'),
-	  stripDebug = require('gulp-strip-debug');
+	  stripDebug = require('gulp-strip-debug'),
+      bs         = require('browser-sync').create();
 
-gulp.task('start', () => {
-    // Sassy -> CSS, concat files, minify, rename, save to css folder 
-    gulp.src(['./public/sass/**/*.scss'])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(concat('build.css'))
-        //.pipe(sourcemaps.init())
-        .pipe(minCss({
-            keepSpecialComments: 0
-        }))
-        //.pipe(sourcemaps.write('.'))
-        .pipe(rename('build.min.css'))
-        .pipe(gulp.dest('./build'));
+// auto update browser on SCSS or JS file changes
+gulp.task('browser-sync', () => {
+    bs.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+    gulp.watch('public/sass/**/*.scss',['sass']);
+    gulp.watch('public/js/**/*.js',['javascript']);
+});
 
-    // Babel ES6+ -> ES5, concat files, minify, rename to bundle
+// Handle javscript tasks
+// Babel ES6+ -> ES5, concat files, minify, rename to bundle
+gulp.task('javascript', () => {
     gulp.src(['./public/js/**/*.js'])
         .pipe(babel({
             presets: ['env']
@@ -33,14 +34,31 @@ gulp.task('start', () => {
         .pipe(uglify())
             .on('error', err => gutil.log(gutil.colors.red('[Error]'), err.toString()))
         .pipe(rename('build.min.js'))
-        .pipe(gulp.dest('./build'));
-});
+        .pipe(gulp.dest('./build'))
+        // prompt brower-sync to reload browser
+        .pipe(bs.reload({stream: true}));
+})
 
-//Watch task
-gulp.task('watch', () => {
-    gulp.watch('public/sass/**/*.scss',['start']);
-    gulp.watch('public/js/**/*.js',['start']);
-});
+// Handle sass and css tasks
+// Sassy -> CSS, concat files, minify, rename, save to css folder 
+gulp.task('sass', () => {
+    gulp.src(['./public/sass/**/*.scss'])
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat('build.css'))
+        //.pipe(sourcemaps.init())
+        .pipe(minCss({
+            keepSpecialComments: 0
+        }))
+        //.pipe(sourcemaps.write('.'))
+        .pipe(rename('build.min.css'))
+        .pipe(gulp.dest('./build'))
+        // prompt brower-sync to reload browser
+        .pipe(bs.reload({stream: true})); 
+})
+
+// prompt gulp to run 
+gulp.task('start', ['javascript', 'sass', 'browser-sync']);
+
 
 
 
