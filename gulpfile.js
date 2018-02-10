@@ -8,6 +8,7 @@ const gulp       = require('gulp'),
       gutil      = require('gulp-util'),
       babel      = require('gulp-babel'),
       sass       = require('gulp-sass'),
+      htmlmin    = require('gulp-htmlmin'),
 	  stripDebug = require('gulp-strip-debug'),
       bs         = require('browser-sync').create();
 
@@ -18,8 +19,9 @@ gulp.task('browser-sync', () => {
             baseDir: "./"
         }
     });
-    gulp.watch('public/sass/**/*.scss',['sass']);
-    gulp.watch('public/js/**/*.js',['javascript']);
+    gulp.watch('./public/sass/**/*.scss',['sass']);
+    gulp.watch('./public/js/**/*.js',['javascript']);
+    gulp.watch('./public/index.html',['html']);
 });
 
 // Handle javscript tasks
@@ -56,8 +58,16 @@ gulp.task('sass', () => {
         .pipe(bs.reload({stream: true})); 
 })
 
+gulp.task('html', () => {
+    gulp.src(['./public/index.html'])
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('./'))
+        // prompt brower-sync to reload browser
+        .pipe(bs.reload({stream: true})); 
+})
+
 // prompt gulp to run 
-gulp.task('start', ['javascript', 'sass', 'browser-sync']);
+gulp.task('start', ['javascript', 'sass', 'html', 'browser-sync']);
 
 
 

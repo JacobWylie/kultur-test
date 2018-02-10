@@ -16,7 +16,9 @@
     "url": "https://github.com/JacobWylie/kultur-test/issues"
   },
   "homepage": "https://github.com/JacobWylie/kultur-test#readme",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-htmlmin": "^4.0.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",

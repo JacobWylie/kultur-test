@@ -1,6 +1,9 @@
 $font-stack: Helvetica, sans-serif;
 
-h1 {
-	color: #902204;
-	font: 300% $font-stack;
+header {
+	display: flex;
+	color: blue;
+	.social {
+		color: green;
+	}
 }
