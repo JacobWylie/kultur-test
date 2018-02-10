@@ -1,4 +1,4 @@
-@import 'hamburger/hamburgers'
+@import 'hamburger/hamburgers';
 @import 'primary-nav';
 @import 'secondary-nav';
 @import 'dropdown-nav';
@@ -17,6 +17,12 @@ header {
 				padding: 5px;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	header .title h1 {
+		font-size: 2.2em;
 	}
 }
 

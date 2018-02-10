@@ -35,3 +35,9 @@
 		}
 	}
 }
+
+@media screen and (max-width: 500px) {
+	.secondary-nav .secondary-nav-link a {
+		font-size: 1em;
+	}
+}
