@@ -10,3 +10,14 @@ function burgerMenu() {
 
 hamburger.addEventListener('click', burgerMenu);
 
+// Masonry
+const grid = document.querySelector('.grid');
+const msnry = new Masonry( grid, {
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 300,
+  gutter: 10,
+  fitWidth: true
+});
+
+
