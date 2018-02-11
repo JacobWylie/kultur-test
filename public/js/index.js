@@ -1,5 +1,6 @@
 const hamburger = document.querySelector('.hamburger');
 const dropdownNav = document.querySelector('.dropdown-nav');
+const grid = document.querySelector('.grid');
 
 // Functionality for burger menu
 function burgerMenu() {
@@ -11,13 +12,16 @@ function burgerMenu() {
 hamburger.addEventListener('click', burgerMenu);
 
 // Masonry
-const grid = document.querySelector('.grid');
-const msnry = new Masonry( grid, {
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 300,
-  gutter: 10,
-  fitWidth: true
-});
+imagesLoaded(grid, () => {
+	const msnry = new Masonry( grid, {
+	  // options
+	  itemSelector: '.grid-item',
+	  columnWidth: 300,
+	  gutter: 10,
+	  fitWidth: true
+	});
+})
+
+
 
 
