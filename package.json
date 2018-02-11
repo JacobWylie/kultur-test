@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/JacobWylie/kultur-test#readme",
   "dependencies": {
-    "gulp-htmlmin": "^4.0.0"
+    "gulp-htmlmin": "^4.0.0",
+    "jsdom": "^11.6.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
